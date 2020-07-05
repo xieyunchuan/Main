@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var time=0;
+        function f() {
+            alert(time);
+            time++;
+        }
+        var time2;
+       function s() {
+              time2=setInterval(f,2000);
+        }
+        function f1() {
+            clearInterval(time2);
+        }
+
+    </script>
+</head>
+<body>
+<button type="button" onclick="s()">begin</button>
+<button type="button" onclick="f1()">stop</button>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function f() {
+            // var input=document.getElementById("x");
+            // var selec=document.getElementById("xx");
+            // var first=selec.firstChild;
+            // alert(first.nodeValue);
+            // alert(first.nodeName);
+            // alert(first.innerText);
+            var span=document.getElementById("span");
+            alert(span.innerText);
+            span.innerText="vacant";
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="x">
+<select id="xx">
+    <option >xieyunchuan</option>
+</select>
+<span id="span">xxxx</span>
+<input type="button" onclick="f()">
+</body>
+</html>

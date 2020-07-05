@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var i=0;
+        function add() {
+            i=i+1;
+            alert(i);
+        };
+    </script>
+</head>
+<body>
+<button type="button" onclick="add()">add</button>
+<script>
+    alert("xxx");
+</script>
+<button type="button" onclick="add2()">add2</button>
+<script>
+    function add2() {
+        i=i+1;
+        alert(i);
+    }
+</script>
+
+</body>
+</html>
