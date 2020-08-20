@@ -37,6 +37,25 @@ public class anonymous_ {
         };
     } //这种写法不是很推荐 改为工厂方法写何不好呢？
 
+    public Car getCarII(String name){
+        class CarImp implements Car{
+             public CarImp(){
+                 System.out.println("局部内部类相比匿名 它可以让我们自己编写构造器,局部内部类没有修饰符");
+             }
+
+            @Override
+            public void show() {
+                System.out.println("CarII ...");
+            }
+
+            @Override
+            public inner_interface getOut() {
+                return null;
+            }
+        }
+        return new CarImp();
+    }
+
     public  void show(Car car){
         car.show();//这里调用
     }
