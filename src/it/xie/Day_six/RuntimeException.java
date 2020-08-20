@@ -3,6 +3,7 @@ package it.xie.Day_six;
 import java.sql.SQLException;
 
 /**
+ * 重要文献：https://developer.ibm.com/zh/articles/j-lo-exception-misdirection/
  * 自定义 RuntimeException
  * 添加错误代码属性
  * 将异常直接打印在客户端的例子屡见不鲜，以 JSP 为例，一旦代码运行出现异常，默认情况下容器将异常堆栈信息直接打印在页面上。
@@ -30,7 +31,7 @@ public class RuntimeException extends java.lang.RuntimeException {
 }
 class tomcat{
     public static void main(String[] args) {
-        System.out.println("客户端的数据格式不对");
+        //我们只需要在视图层做异常检测即可
         tomcat t=new tomcat();
        try {
 //           t.show();
@@ -44,18 +45,16 @@ class tomcat{
         throw new RuntimeException(1000,"格式不对",new IllegalAccessException());
     }
 
-    public void Service(){
+    public String Service(){
 //        try {
 //            retrieveCustomerById(123);
 //        } catch (SQLException e) {
 //            e.printStackTrace();
 //        }// 这是一般写法 不具有隔离原则
         System.out.println("使用retrieveCustomerByIdII");
-        try {
             retrieveCustomerByIdII(1);
-        }catch (RuntimeException e){
-            System.out.println(e.getErrorCode());
-        }
+        System.out.println("使用非检测异常做为DAO层异常的封装必须抛出 可以避免上一层污染 同时把DAO层异常的处理就关在DAO层 有利于隔离原则");
+            return null;
     }
 
     public String retrieveCustomerById(int id) throws SQLException {
